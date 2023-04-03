@@ -1,8 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template, redirect
+
 app=Flask(__name__)
 
 @app.route('/')
 def home():
-    return '<h1> hello world </h1>'
+    return render_template('index.html')
 
-app.run()
+@app.route('/amazon')
+def amazon():
+    return redirect("https://www.amazon.in/Secret-History-Donna-Tartt/dp/0140167773")
+     
+
+app.run(debug=True)
